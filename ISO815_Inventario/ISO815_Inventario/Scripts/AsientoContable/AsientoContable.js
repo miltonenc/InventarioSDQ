@@ -1,9 +1,11 @@
 ﻿$(document).ready(function () {
+    var base_url = window.location.origin;
+    console.log("BASE URI: " + base_url + "/AsientoContable/Sincronizar");
     $('#btnSincronizar').click(function () {
         
-        $.post("AsientoContable/Sincronizar",
+        $.post(base_url + "/AsientoContable/Sincronizar",
             {
-                id: $('#item_id').val()
+                id: $('#id').val()
             },
             function (data) {
                 var myObj = JSON.parse(data);

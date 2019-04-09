@@ -7,9 +7,23 @@
 <h2>Asiento Contable</h2>
 
 <div>
+
+    <div id="mensaje" class="alert alert-success" role="alert" style="display: none" ;>
+        <strong>Sincronizacion Satisfactoria!</strong> Se han sincronizado los registros de forma satisfactoria con el sistema de Contabilidad.
+    </div>
+
+    <div id="mensajeError" class="alert alert-danger" role="alert" style="display: none" ;>
+        <strong>Sincronizacion Fallida!</strong> Ha ocurrido un error al sincronizar los registros con el sistema de Contabilidad.
+    </div>
+
+    <br />
+
+    <input type="button" id="btnSincronizar" class="btn btn-warning btn-sm" title="Sincronizar (Contabilidad)" value="Sincronizar (Contabilidad)" />
     <hr />
+
     <dl class="dl-horizontal">
         <dt>
+            @Html.HiddenFor(model => model.id)
             @Html.DisplayNameFor(model => model.nombre)
         </dt>
 
