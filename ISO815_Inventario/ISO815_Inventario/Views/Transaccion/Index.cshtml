@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ISO815_Inventario.Models.transaccion>
+
+@{
+    ViewBag.Title = "Transaccion";
+}
+
+<h2>Transaccion</h2>
+
+<p>
+    @(Html.ActionLink("Agregar", "Create", new { id = 1 }, new { @class = "btn btn-primary btn-lg" }))
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.articulo_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.monto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>Acciones</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.articulo.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @String.Format("{0:RD$#,##0.##}", item.monto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @if (item.estado == 1)
+            {
+                @("Activo");
+            }
+            else
+            {
+                @("Inactivo");
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.id }) /
+            @Html.ActionLink("Detalle", "Details", new { id = item.id }) /
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,110 @@
+﻿@model IEnumerable<ISO815_Inventario.Models.asiento_contable>
+
+@{
+    ViewBag.Title = "Asiento Contable";
+}
+
+<h2>Asiento Contable</h2>
+
+<br />
+
+<div id="mensaje" class="alert alert-success" role="alert" style="display: none";>
+   <strong>Sincronizacion Satisfactoria!</strong> Se han sincronizado los registros de forma satisfactoria con el sistema de Contabilidad.
+</div>
+
+<div id="mensajeError" class="alert alert-danger" role="alert" style="display: none";>
+   <strong>Sincronizacion Fallida!</strong> Ha ocurrido un error al sincronizar los registros con el sistema de Contabilidad.
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_inventario_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cuenta_contable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_movimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.monto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+                @Html.HiddenFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo_inventario.nombre)
+            </td>
+            <td>
+                @if (item.cuenta_contable == 6)
+                {
+                    @("Inventario");
+                }
+                else if (item.cuenta_contable == 82)
+                {
+                    @("Cuenta X Cobrar Proveedor");
+                }
+                else
+                {
+                    @("N/A (Cuenta No Registrada)");
+                }
+            </td>
+            <td>
+                @if (item.tipo_movimiento == "DB")
+                {
+                    @("Debito");
+                }
+                else
+                {
+                    @("Credito");
+                }
+            </td>
+            <td>
+                @String.Format("{0:RD$#,##0.##}", item.monto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @if (item.estado == 1)
+                {
+                    @("Activo");
+                }
+                else
+                {
+                    @("Inactivo");
+                }
+            </td>
+            <td>
+                <input type="button" id="btnSincronizar" class="btn btn-warning btn-sm" 
+                       title="Sincronizar (Contabilidad)" value="Sincronizar (Contabilidad)" />
+            </td>
+        </tr>
+    }
+
+</table>
+
+

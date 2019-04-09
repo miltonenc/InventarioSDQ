@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d4393b04263b4359ac16cbacba09b194" Name="Diagram1">
+        <EntityTypeShape EntityType="ISO815_INV_DBModel.almacen" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISO815_INV_DBModel.articulo" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISO815_INV_DBModel.asiento_contable" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISO815_INV_DBModel.tipo_inventario" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISO815_INV_DBModel.transaccion" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="ISO815_INV_DBModel.articulo_tipo_inventario_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ISO815_INV_DBModel.TRANSACCION_ARTICULO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ISO815_INV_DBModel.ASIENTO_CONT_TIPO_INVENTARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ISO815_INV_DBModel.ARTICULO_ALMACEN_FK" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

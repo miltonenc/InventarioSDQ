@@ -1,0 +1,66 @@
+﻿@model ISO815_Inventario.Models.almacen
+
+@{
+    ViewBag.Title = "Almacen/Detalle";
+}
+
+<h2>Almacen</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @if (Model.estado == 1)
+            {
+                @("Activo");
+            }
+            else
+            {
+                @("Inactivo");
+            }
+        </dd>
+
+    </dl>
+</div>
+
+<div class="row">
+    <div class="col-md-offset-2 col-md-4">
+        @(Html.ActionLink("Volver al Listado", "Index", new { id = 1 }, new { @class = "btn btn-outline-dark" }))
+    </div>
+</div>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ISO815_Inventario.Models.tipo_inventario>
+
+@{
+    ViewBag.Title = "Tipo Inventario";
+}
+
+<h2>Tipo Inventario</h2>
+
+<p>
+    @(Html.ActionLink("Agregar", "Create", new { id = 1 }, new { @class = "btn btn-primary btn-lg" }))
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cuenta_contable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>Acciones</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @if (item.cuenta_contable == 6)
+            {
+                @("Inventario");
+            }
+            else if (item.cuenta_contable == 82)
+            {
+                @("Cuenta X Cobrar Proveedor");
+            }
+            else
+            {
+                @("N/A (Cuenta No Registrada)");
+            }
+        </td>
+        <td>
+            @if (item.estado == 1)
+            {
+                @("Activo");
+            }
+            else
+            {
+                @("Inactivo");
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.id }) /
+            @Html.ActionLink("Detalle", "Details", new { id = item.id }) /
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>
