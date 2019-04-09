@@ -1,0 +1,104 @@
+﻿@model ISO815_Inventario.Models.asiento_contable
+
+@{
+    ViewBag.Title = "Asiento Contable/Detalle";
+}
+
+<h2>Asiento Contable</h2>
+
+<div>
+
+    <div id="mensaje" class="alert alert-success" role="alert" style="display: none" ;>
+        <strong>Sincronizacion Satisfactoria!</strong> Se han sincronizado los registros de forma satisfactoria con el sistema de Contabilidad.
+    </div>
+
+    <div id="mensajeError" class="alert alert-danger" role="alert" style="display: none" ;>
+        <strong>Sincronizacion Fallida!</strong> Ha ocurrido un error al sincronizar los registros con el sistema de Contabilidad.
+    </div>
+
+    <br />
+
+    <input type="button" id="btnSincronizar" class="btn btn-warning btn-sm" title="Sincronizar (Contabilidad)" value="Sincronizar (Contabilidad)" />
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.HiddenFor(model => model.id)
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_inventario_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_inventario.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cuenta_contable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cuenta_contable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_movimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_movimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @if (Model.estado == 1)
+            {
+                @("Activo");
+            }
+            else
+            {
+                @("Inactivo");
+            }
+        </dd>
+
+    </dl>
+</div>
+
+<div class="row">
+    <div class="col-md-offset-2 col-md-4">
+        @(Html.ActionLink("Volver al Listado", "Index", new { id = 1 }, new { @class = "btn btn-outline-dark" }))
+    </div>
+</div>
