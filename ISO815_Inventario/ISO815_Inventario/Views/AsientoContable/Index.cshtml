@@ -8,14 +8,6 @@
 
 <br />
 
-<div id="mensaje" class="alert alert-success" role="alert" style="display: none";>
-   <strong>Sincronizacion Satisfactoria!</strong> Se han sincronizado los registros de forma satisfactoria con el sistema de Contabilidad.
-</div>
-
-<div id="mensajeError" class="alert alert-danger" role="alert" style="display: none";>
-   <strong>Sincronizacion Fallida!</strong> Ha ocurrido un error al sincronizar los registros con el sistema de Contabilidad.
-</div>
-
 <table class="table">
     <tr>
         <th>
@@ -99,8 +91,7 @@
                 }
             </td>
             <td>
-                <input type="button" id="btnSincronizar" class="btn btn-warning btn-sm" 
-                       title="Sincronizar (Contabilidad)" value="Sincronizar (Contabilidad)" />
+                @(Html.ActionLink("Sincronizar", "Details", new { id = item.id }, new { @class = "btn btn-warning btn-sm" }))
             </td>
         </tr>
     }

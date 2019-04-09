@@ -61,7 +61,14 @@
         <td>
             @Html.ActionLink("Editar", "Edit", new { id = item.id }) /
             @Html.ActionLink("Detalle", "Details", new { id = item.id }) /
-            @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+            @if (item.estado == 1)
+            {
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+            }
+            else
+            {
+                <text>Eliminar</text>
+            }
         </td>
     </tr>
 }
